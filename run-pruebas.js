@@ -1,5 +1,16 @@
 const fs = require('fs');
 
+function stringToValidType(str) {
+  if(str === 'null')
+    return null;
+  else if(str === 'undefined')
+    return undefined;
+  else if(!isNaN(str))
+    return Number(str);
+  else 
+    return str;
+}
+
 fs.readFile('./CasosPrueba.txt', 'utf8', (error, data) => {
   if(error) {
     console.error('Hubo un error al leer los casos de prueba: ', error);
@@ -26,7 +37,7 @@ fs.readFile('./CasosPrueba.txt', 'utf8', (error, data) => {
 
     let params = testInfo[2].split(' ');
     params.forEach(function(param) {
-      info.params.push(param);
+      info.params.push(stringToValidType(param));  
     });
 
     testsArr.push(info);
