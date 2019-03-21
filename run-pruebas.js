@@ -42,13 +42,18 @@ fs.readFile('./CasosPrueba.txt', 'utf8', (error, data) => {
 
     tests.push(info);
 
-    //Evaluar cada caso mandando llamar al método
-    if(typeof Medias[info.methodName] === 'function') { //Métodos estáticos
-      info.result = Medias[info.methodName](info.params);
-    } else if(typeof medias[info.methodName] === 'function') { //Métodos propios de la instancia
-      info.result = medias[info.methodName](info.params);
-    } else {
-      info.result = info.methodName + ' Método no existente'
+    try {
+      //Evaluar cada caso mandando llamar al método
+      if(typeof Medias[info.methodName] === 'function') { //Métodos estáticos
+        info.result = Medias[info.methodName](info.params);
+      } else if(typeof medias[info.methodName] === 'function') { //Métodos propios de la instancia
+        info.result = medias[info.methodName](info.params);
+      } else {
+        info.result = info.methodName + ' Método no existente'
+      }
+    } catch(error) {
+      //Validación para los métodos que generan una excepción
+      info.result = error;
     }
 
     info.isSuccess = info.result === info.correctResult;
