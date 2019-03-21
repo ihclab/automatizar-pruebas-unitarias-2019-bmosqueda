@@ -4,9 +4,9 @@
 0004:mediaAritmetica:0 0 0 1:0.2500
 0005:mediaAritmetica::0.0000
 0011:mediaGeometrica:3 5 6 8 null:0.0000
-0012:mediaGeometrica:15 1 2 3 6:0.0000
-0013:mediaGeometrica:12 3 63:3.0320
-0015:mediaGeometrica:12 31 2:3.0320
+0012:mediaGeometrica:15 1 2 3 6:3.5195
+0013:mediaGeometrica:12 3 63:13.1386
+0015:mediaGeometrica:12 31 2:9.0613
 0015:mediaGeometrica:12 3 98 8:3.0320
 0016:mediaArmonica:56 3 14:3.0320
 0017:mediaArmonica:9 11 96 78:3.0320

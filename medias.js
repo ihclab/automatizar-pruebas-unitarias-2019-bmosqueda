@@ -37,15 +37,18 @@ module.exports = (function() {
      * @return {double}             mediaGeometrica
      */
     mediaGeometrica(params) { 
-      let sum = 0;
+      let sum = 1;
+      let hasNumbers = false;
+      
       params.forEach(function(elem) {
         //Valida valores, cualquier valor no númerico no lo toma en cuenta
         if(!isNaN(elem)) {
-          sum += Number(elem);
+          hasNumbers = true;
+          sum *= Number(elem);
         }
       });
 
-      return raizEnesima(sum, params.length);
+      return raizEnesima(hasNumbers ? sum : 0, params.length);
     }
 
     /**
