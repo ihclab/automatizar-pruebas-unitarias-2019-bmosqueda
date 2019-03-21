@@ -22,6 +22,7 @@ module.exports = (function() {
     static mediaAritmetica(params) { 
       let total = 0;
       params.forEach(function(elem) {
+        //Valida valores, cualquier valor no númerico no lo toma en cuenta
         if(!isNaN(elem)) {
           total += Number(elem);
         }
@@ -38,7 +39,10 @@ module.exports = (function() {
     mediaGeometrica(params) { 
       let sum = 0;
       params.forEach(function(elem) {
-        sum += Number(elem);
+        //Valida valores, cualquier valor no númerico no lo toma en cuenta
+        if(!isNaN(elem)) {
+          sum += Number(elem);
+        }
       });
 
       return raizEnesima(sum, params.length);
