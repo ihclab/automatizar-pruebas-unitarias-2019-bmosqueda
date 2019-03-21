@@ -33,12 +33,12 @@ function saveTestResult(tests) {
     } else if(test.status == 1) {
       successNum++;
       tmpStr += 'Calculado = ' + test.result + getSpaces(12 - test.result.toString().length);
-      
+      tmpStr += 'T.E: ' + test.time + ' ms';
     } else {
       failuresNum++;
       tmpStr += 'Calculado = ' + test.result + getSpaces(12 - test.result.toString().length);
       tmpStr += 'Esperado = ' + test.correctResult + getSpaces(12 - test.correctResult.toString().length);
-      
+      tmpStr += 'T.E: ' + test.time + 'ms';
     }
 
     if(test.status < 0)
@@ -100,9 +100,9 @@ fs.readFile('./CasosPrueba.txt', 'utf8', (error, data) => {
       if(typeof fn !== 'function')
         throw 'Método no existente';
 
-      
+      let before = Date.now(); //Para evaluar el tiempo de ejecución
       info.result = fn(info.params);
-      
+      info.time = Date.now() - before;
       info.status = info.result === info.correctResult ? 1 : 0;
     } catch(error) {
       info.status = -1; //Excepción
