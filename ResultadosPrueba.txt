@@ -1,6 +1,6 @@
 ID    Resultado       Método             Detalles
 ===================================================================================
-0001    Éxito      mediaAritmetica      Calculado = 4.3333      T.E: 1 ms
+0001    Éxito      mediaAritmetica      Calculado = 4.3333      T.E: 0 ms
 0002    Éxito      mediaAritmetica      Calculado = 2.5         T.E: 0 ms
 0003    Éxito      mediaAritmetica      Calculado = 25.8        T.E: 0 ms
 0004    Éxito      mediaAritmetica      Calculado = 0.25        T.E: 0 ms

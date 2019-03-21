@@ -18,9 +18,13 @@ function getSpaces(num) {
 function saveTestResult(tests) {
   let successNum = failuresNum = 0;
 
+  let fileStr = 'ID    Resultado       Método             Detalles\n' +
+              '===================================================================================\n';
+
   tests.forEach(function(test) {
     let tmpStr = test.testId;
     let tmpStrConsole = test.testId;
+
     if(test.status < 0)
       tmpStr += '               ';
     else {
@@ -34,6 +38,7 @@ function saveTestResult(tests) {
       successNum++;
       tmpStr += 'Calculado = ' + test.result + getSpaces(12 - test.result.toString().length);
       tmpStr += 'T.E: ' + test.time + ' ms';
+
     } else {
       failuresNum++;
       tmpStr += 'Calculado = ' + test.result + getSpaces(12 - test.result.toString().length);
@@ -47,10 +52,38 @@ function saveTestResult(tests) {
       console.log(chalk.green(tmpStr));
     else
       console.log(chalk.red(tmpStr));   
+
+    fileStr += tmpStr + '\n';
   });
+
+  fileStr += '\n\n=========================== Fin de la prueba ======================================\n\n'
+  fileStr +=      '                 Éxito = ' + successNum + '               Falla = ' + failuresNum;
 
   console.log('\n\n=========================== Fin de la prueba ======================================\n');
   console.log(chalk.green('                 Éxito = ' + successNum ), chalk.red('               Falla = ' + failuresNum + '\n\n'));
+
+  let fileName = new Date().toLocaleString(undefined, {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  let tmp = '';
+  for(let chr of fileName) 
+    if(chr === '/')
+      tmp += '-';
+    else
+      tmp += chr;
+
+  fs.writeFile('./' + tmp + '.txt', fileStr, 'utf8', (error) => {
+    if(error) {
+      console.error('Hubo un problema al guardar el archivo con los resultados de las pruebas: ', error);
+    } else {
+      console.log('Archivo con resultados de pruebas guardado en ResultadosPrueba.txt');
+    }
+  });
 }
 
 fs.readFile('./CasosPrueba.txt', 'utf8', (error, data) => {
