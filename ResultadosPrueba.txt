@@ -1,0 +1,22 @@
+ID    Resultado       Método             Detalles
+===================================================================================
+0001    Éxito      mediaAritmetica      Calculado = 4.3333      T.E: 0 ms
+0002    Éxito      mediaAritmetica      Calculado = 2.5         T.E: 0 ms
+0003    Éxito      mediaAritmetica      Calculado = 25.8        T.E: 0 ms
+0004    Éxito      mediaAritmetica      Calculado = 0.25        T.E: 0 ms
+0005    Éxito      mediaAritmetica      Calculado = 0           T.E: 0 ms
+0011   *Falla*     mediaGeometrica      Calculado = 1.8556      Esperado = 0           T.E: 1ms
+0012   *Falla*     mediaGeometrica      Calculado = 1.9332      Esperado = 0           T.E: 0ms
+0013   *Falla*     mediaGeometrica      Calculado = 4.2727      Esperado = 3.032       T.E: 0ms
+0015   *Falla*     mediaGeometrica      Calculado = 3.5569      Esperado = 3.032       T.E: 0ms
+0015   *Falla*     mediaGeometrica      Calculado = 3.3166      Esperado = 3.032       T.E: 0ms
+0016               mediaArmonica        Method not implemented
+0017               mediaArmonica        Method not implemented
+0018               mediaArmonica        Method not implemented
+0019               mediaArmonica        Method not implemented
+0020               mediaArmonica        Method not implemented
+
+
+=========================== Fin de la prueba ======================================
+
+                 Éxito = 5               Falla = 5
